@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { track } from '@vercel/analytics'
 import { RevealWrapper } from '@/components/ui/RevealWrapper'
 
 const badges = ['100% San Juan', 'Sin octógonos', 'Biodegradable', 'Compre Local']
@@ -47,15 +48,30 @@ export function CTA() {
         </RevealWrapper> */}
 
         <RevealWrapper delay={0.26}>
-          <motion.a
-            href="mailto:contacto@minermix.com.ar?subject=Solicitud%20de%20reuni%C3%B3n%20MinerMix"
-            className="mt-9 inline-block px-10 py-3.5 font-mono text-[12px] font-semibold uppercase tracking-[0.22em] transition-colors duration-200"
-            style={{ backgroundColor: '#c8973a', color: '#0a0f1c' }}
-            whileHover={{ backgroundColor: '#e8b84b' }}
-            whileTap={{ scale: 0.98 }}
-          >
-            Solicitar reunión
-          </motion.a>
+          <div className="mt-9 flex flex-col items-center gap-3 sm:flex-row">
+            <motion.a
+              href="mailto:Myfamily.5444@gmail.com?subject=Solicitud%20de%20reuni%C3%B3n%20MinerMix"
+              onClick={() => track('click_email_contacto')}
+              className="inline-block px-10 py-3.5 font-mono text-[12px] font-semibold uppercase tracking-[0.22em] transition-colors duration-200"
+              style={{ backgroundColor: '#c8973a', color: '#0a0f1c' }}
+              whileHover={{ backgroundColor: '#e8b84b' }}
+              whileTap={{ scale: 0.98 }}
+            >
+              Solicitar reunión
+            </motion.a>
+            <motion.a
+              href="https://wa.me/5492644860541?text=Hola%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20MinerMix"
+              onClick={() => track('click_whatsapp_contacto')}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block px-10 py-3.5 font-mono text-[12px] font-semibold uppercase tracking-[0.22em] transition-colors duration-200"
+              style={{ border: '1px solid rgba(200,151,58,0.4)', color: '#c8973a' }}
+              whileHover={{ borderColor: '#c8973a', color: '#e8b84b' }}
+              whileTap={{ scale: 0.98 }}
+            >
+              WhatsApp
+            </motion.a>
+          </div>
         </RevealWrapper>
 
         <RevealWrapper delay={0.34}>
